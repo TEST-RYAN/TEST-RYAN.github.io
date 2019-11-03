@@ -1,10 +1,193 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
-  </head>
-  <body>
-    <h1>覺得厲害</h1>
-  </body>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+	.loader {
+		background: #FFFFFF;
+		background: radial-gradient(#888888, #FFFFFF);
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: -99999;
+	}
+
+	.loader-inner {
+		bottom: 0;
+		height: 240px;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 300px;
+	}
+
+	.loader-line-wrap {
+		animation: 
+			spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
+		;
+		box-sizing: border-box;
+		height: 50px;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		transform-origin: 50% 100%;
+		width: 300px;
+	}
+	.loader-line {
+		border: 4px solid transparent;
+		border-radius: 100%;
+		box-sizing: border-box;
+		height: 100px;
+		left: 0;
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100px;
+	}
+	.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+	.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
+	.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
+	.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
+	.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+	.loader-line-wrap:nth-child(1) .loader-line {
+		height: 90px;
+		width: 90px;
+		top: 7px;
+	}
+	.loader-line-wrap:nth-child(2) .loader-line {
+		height: 76px;
+		width: 76px;
+		top: 14px;
+	}
+	.loader-line-wrap:nth-child(3) .loader-line {
+		height: 62px;
+		width: 62px;
+		top: 21px;
+	}
+	.loader-line-wrap:nth-child(4) .loader-line {
+		height: 48px;
+		width: 48px;
+		top: 28px;
+	}
+	.loader-line-wrap:nth-child(5) .loader-line {
+		height: 34px;
+		width: 34px;
+		top: 35px;
+	}
+
+	@keyframes spin {
+		0%, 15% {
+			transform: rotate(0);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+	.border-color-red-one{
+		border-color: #EB4747;
+	}
+	.border-color-yellow-one{
+		border-color: #EBEB47;
+	}
+	.border-color-green-one{
+		border-color: #47EB47;
+	}
+	.border-color-blue-one{
+		border-color: #47EBEB;
+	}
+	.border-color-purple-one{
+		border-color: #4747EB;
+	}
+	.border-color-red-two{
+		border-color: #0fcfc0;
+	}
+	.border-color-yellow-two{
+		border-color: #9540e4;
+	}
+	.border-color-green-two{
+		border-color: #bf8cee;
+	}
+	.border-color-blue-two{
+		border-color: #ef9708;
+	}
+	.border-color-purple-two{
+		border-color: #ff6a80;
+	}
+	.border-color-red-three{
+		border-color: #001eff;
+	}
+	.border-color-yellow-three{
+		border-color: #4d3dff;
+	}
+	.border-color-green-three{
+		border-color: #4b82e1;
+	}
+	.border-color-blue-three{
+		border-color: #77cef9;
+	}
+	.border-color-purple-three{
+		border-color: #9ff6f9;
+	}
+	.buttonDiv{
+		position: absolute;
+		bottom:20%;
+		width:250px;
+		padding:10px;
+		left: 50%;              /*從左邊開始算，右推 50% (一半) 的位置*/
+		margin-left: -100px;    /*寬度的一半*/
+
+	}
+	</style>
+	<script>
+	var elems = document.getElementsByClassName('loader-line');
+	var borderClassColor = ['red','yellow','green','blue','purple'];
+	function addBorderColor(tag)
+	{
+		for (var i=0; i < (elems.length); i++) {
+			elems[i].className = 'loader-line border-color-' + borderClassColor[i] + '-' + tag;
+		}
+	}
+	</script>
+	
+</head>
+	<body onload="addBorderColor('one')">
+	<div class="container">
+		<div class="loader">
+			<div class="loader-inner">
+				<div class="loader-line-wrap">
+					<div class="loader-line border-color-purple-three"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+			</div>
+		</div>
+		<div class="buttonDiv">
+			<button type="button" class="btn btn-primary" onclick="addBorderColor('one')">One</button>
+			<button type="button" class="btn btn-info" onclick="addBorderColor('two')">Two</button>
+			<button type="button" class="btn btn-warning" onclick="addBorderColor('three')">Three</button>
+		</div>
+	</div>
+	</body>
 </html>
